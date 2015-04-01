@@ -3,7 +3,8 @@
     <head>
         <% include ../partials/head.ejs %>
     </head>
-    <body class="container">
+    <body>
+      <article class="container">
         <header>
             <% include ../partials/header.ejs %>
         </header>
@@ -38,14 +39,15 @@
                 <% }); %>
             </div>
         </main>
+      </article>
 
-        <footer>
-            <% include ../partials/footer.ejs %>
-        </footer>
-        <script>
-            $(document).ready(function() {
-                $('[data-toggle="popover"]').popover({'placement': 'right'});
-            });
-        </script>
+      <footer class="main-footer">
+          <% include ../partials/footer.ejs %>
+      </footer>
+      <script>
+          $(document).ready(function() {
+              $('[data-toggle="popover"]').popover({'placement': 'right'});
+          });
+      </script>
     </body>
 </html>

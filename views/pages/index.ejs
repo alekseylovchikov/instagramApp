@@ -14,7 +14,7 @@
                 <% grams.forEach(function(gram) { %>
                     <div class="col-md-4 images">
                         <div class="username">
-                            <h1 class="alert alert-info"><a href="https://instagram.com/<%= gram.user.username %>/" style="color: #fff;" target="_blank"><%= gram.user.username %></a></h1>
+                            <h1 class="alert alert-info"><a href="https://instagram.com/<%= gram.user.username %>/" style="color: #fff;" data-toggle="tooltip" data-placement="top" title="<%= gram.user.username %>" target="_blank"><%= gram.user.username %></a></h1>
                         </div>
                         <% if(gram.type === 'video') { %>
                             <a href="<%= gram.link %>" target="_blank"><img class="img-responsive img-thumbnail img-shadow" src="<%= gram.images.standard_resolution.url %>" /></a>
@@ -46,8 +46,11 @@
       </footer>
       <script>
           $(document).ready(function() {
-              $('[data-toggle="popover"]').popover({'placement': 'right'});
+              $('[data-toggle="popover"]').popover({'placement': 'bottom'});
+              $('[data-toggle="tooltip"]').tooltip();
           });
+
+
       </script>
     </body>
 </html>

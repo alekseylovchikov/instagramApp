@@ -13,6 +13,29 @@ instagram.use({
     client_secret: '5a65ee065f1b4a7bb36e87611bedbcdd'
 });
 
+var redirect_uri = 'https://fruitinstaweb.herokuapp.com/handleauth';
+
+exports.authorize_user = function(req, res) {
+  res.redirect(instagram.get_authorization_url(redirect_uri, { scope: ['likes'], state: 'a state' }));
+};
+
+exports.handleauth = function(req, res) {
+  instagram.authorize_user(req.query.code, redirect_uri, function(err, result) {
+    if (err) {
+      console.log(err.body);
+      res.send("Didn't work");
+    } else {
+      console.log('Yay! Access token is ' + result.access_token);
+      res.send('You made it!!');
+    }
+  });
+};
+
+// This is where you would initially send users to authorize
+app.get('/authorize_user', exports.authorize_user);
+// This is your redirect URI
+app.get('/handleauth', exports.handleauth);
+
 app.get('/', function(req, res) {
     instagram.media_popular(function(err, medias, remaining, limit) {
         res.render('pages/index', { grams: medias });

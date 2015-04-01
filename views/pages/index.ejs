@@ -35,6 +35,12 @@
                                 <button type="button" data-toggle="popover" class="btn btn-primary" data-content="<%= gram.caption.text %>" data-original-title="Description">Description</button>
                             </div>
                         <% } %>
+                        <div class="full-screen">
+                          <strong>tags: </strong>
+                          <% gram.tags.forEach(function(tag) { %>
+                            <span>#<%= tag %> </span>
+                          <% }); %>
+                        </div>
                     </div>
                 <% }); %>
             </div>

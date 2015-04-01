@@ -1,0 +1,17 @@
+{
+  "name": "instagramApp",
+  "version": "1.0.0",
+  "description": "this is a photo application made with instagram",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "fruitdev",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.3.1",
+    "express": "^4.12.3",
+    "instagram": "0.0.4",
+    "instagram-node": "^0.5.6"
+  }
+}

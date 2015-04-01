@@ -1,0 +1,61 @@
+body {
+    padding-top: 50px;
+}
+
+footer {
+    padding: 50px;
+}
+
+.content {
+    width: 800px;
+    margin: auto;
+}
+
+.images {
+    padding: 20px;
+}
+
+.grey-color {
+    color: #99979a;
+}
+
+.put-me-up {
+    position: relative;
+    padding-left: 4px;
+    top: -3px;
+}
+
+.bar {
+    float: left;
+    padding-top: 10px;
+}
+
+.type-post {
+    float: right;
+    padding-top: 7px;
+}
+
+.full-screen {
+    float: left;
+    width: 100%;
+}
+
+.username {
+    padding-top: 50px;
+}
+
+.username h1 a:hover {
+    text-decoration: none;
+}
+
+.username h1 a {
+    text-decoration: none;
+}
+
+.img-shadow {
+  box-shadow: 0 0 8px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 0 8px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0 0 8px rgba(0,0,0,0.5);
+  -o-box-shadow: 0 0 8px rgba(0,0,0,0.5);
+  padding: 10px;
+}

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <% include ../partials/head.ejs %>
+    </head>
+    <body class="container">
+        <header>
+            <% include ../partials/header.ejs %>
+        </header>
+
+        <main id="content">
+            <div class="row">
+                <% grams.forEach(function(gram) { %>
+                    <div class="col-md-4 images">
+                        <div class="username">
+                            <h1 class="alert alert-info"><a href="https://instagram.com/<%= gram.user.username %>/" style="color: #fff;" target="_blank"><%= gram.user.username %></a></h1>
+                        </div>
+                        <% if(gram.type === 'video') { %>
+                            <a href="<%= gram.link %>" target="_blank"><img class="img-responsive img-thumbnail img-shadow" src="<%= gram.images.standard_resolution.url %>" /></a>
+                        <% } else { %>
+                            <a href="<%= gram.link %>" target="_blank"><img class="img-responsive img-thumbnail img-shadow" src="<%= gram.images.standard_resolution.url %>" /></a>
+                        <% } %>
+                        <div class="type-post">
+                            <span>Type: <%= gram.type %></span>
+                        </div>
+                        <div class="bar">
+                            <span class="glyphicon glyphicon-heart grey-color"></span> <span class="put-me-up"><%= gram.likes.count %></span>
+                            <br/>
+                            <span class="glyphicon glyphicon-comment grey-color"></span> <span class="put-me-up"><%= gram.comments.count %></span>
+                            <br/>
+                        </div>
+                        <% if(gram.caption !== null) { %>
+                            <div class="full-screen">
+                                <button type="button" data-toggle="popover" class="btn btn-primary" data-content="<%= gram.caption.text %>" data-original-title="Description">Description</button>
+                            </div>
+                        <% } %>
+                    </div>
+                <% }); %>
+            </div>
+        </main>
+
+        <footer>
+            <% include ../partials/footer.ejs %>
+        </footer>
+        <script>
+            $(document).ready(function() {
+                $('[data-toggle="popover"]').popover({'placement': 'right'});
+            });
+        </script>
+    </body>
+</html>

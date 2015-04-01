@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <% include ../partials/head.ejs %>
+</head>
+<body class="container">
+<header>
+    <% include ../partials/header.ejs %>
+</header>
+
+<main id="content">
+    <div class="row">
+        <% pics.forEach(function(pic) { %>
+            <div class="col-md-2">
+                <%= pic %>
+            </div>
+        <% }); %>
+    </div>
+</main>
+
+<footer>
+    <% include ../partials/footer.ejs %>
+</footer>
+</body>
+</html>

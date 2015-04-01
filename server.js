@@ -32,7 +32,7 @@ exports.handleauth = function(req, res) {
 };
 
 // This is where you would initially send users to authorize
-app.get('/authorize_user', exports.authorize_user);
+app.get('/auth/instagram/callback', exports.authorize_user);
 // This is your redirect URI
 app.get('/handleauth', exports.handleauth);
 

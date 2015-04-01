@@ -10,7 +10,7 @@ app.set('view engine', 'ejs');
 
 instagram.use({
     client_id: 'fd04713cd6ef4bd58af11b71167961fa',
-    client_secret: '5a65ee065f1b4a7bb36e87611bedbcdd'
+    client_secret: '0288e4cf4dad40dba31ae78f942493fc'
 });
 
 var redirect_uri = 'https://fruitinstaweb.herokuapp.com/handleauth';

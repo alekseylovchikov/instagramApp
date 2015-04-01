@@ -34,6 +34,7 @@ footer {
 .full-screen {
     float: left;
     width: 100%;
+    z-index: 1000;
 }
 
 .username {
@@ -73,4 +74,18 @@ footer {
 
 .main-tags {
   float: left;
+}
+
+.images {
+    height: 640px;
+}
+
+.tags {
+    padding-top: 3px;
+}
+
+.put-me-down {
+    position: relative;
+    padding-left: 4px;
+    top: 3px;    
 }

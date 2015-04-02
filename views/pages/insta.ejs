@@ -1,25 +1,32 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <% include ../partials/head.ejs %>
-</head>
-<body class="container">
-<header>
-    <% include ../partials/header.ejs %>
-</header>
+    <head>
+        <% include ../partials/head.ejs %>
+    </head>
+    <body class="container">
+        <header>
+            <% include ../partials/header.ejs %>
+        </header>
 
-<main id="content">
-    <div class="row">
-        <% pics.forEach(function(pic) { %>
-            <div class="col-md-2">
-                <%= pic %>
+        <main id="content">
+            <h1><%= title %></h1>
+            <div class="row">
+                <% grams.forEach(function(gram) { %>
+                    <% if(gram.type === 'video') { %>
+                        <div class="col-md-4 images">
+                            <video class="img-responsive" src="<%= gram.videos.standard_resolution.url %>" controls></video>
+                        </div>
+                    <% } else { %>
+                        <div class="col-md-4 images">
+                            <img class="img-shadow img-responsive" src="<%= gram.images.standard_resolution.url %>" alt=""/>
+                        </div>
+                    <% } %>
+                <% }); %>
             </div>
-        <% }); %>
-    </div>
-</main>
+        </main>
 
-<footer>
-    <% include ../partials/footer.ejs %>
-</footer>
-</body>
+        <footer>
+            <% include ../partials/footer.ejs %>
+        </footer>
+    </body>
 </html>

@@ -2,31 +2,35 @@ var express = require('express');
 var app = express();
 var instagram = require('instagram-node').instagram();
 var port = Number(process.env.PORT || 3000);
-var ig = require('instagram').createClient('14810652f76c423e9171e0c1933984f4', 'ac862344db1d40fab319f36734a11b8e');
+var secrets = require('./secrets.json');
+var insta = require('instagram').createClient(secrets.client_id, secrets.client_secret);
+var ig = require('instagram-node-lib');
+var helpers = require('express-helpers')(app);
+var result;
 
+ig.set('client_id', secrets.client_id);
+ig.set('client_secret', secrets.client_secret);
+
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
-app.set('view engine', 'ejs');
-
 instagram.use({
-    client_id: 'fd04713cd6ef4bd58af11b71167961fa',
-    client_secret: '0288e4cf4dad40dba31ae78f942493fc'
+    client_id: secrets.client_id,
+    client_secret: secrets.client_secret
 });
 
 app.get('/', function(req, res) {
     instagram.media_popular(function(err, medias, remaining, limit) {
-      res.render('pages/index', { grams: medias });
-      console.log(medias);
+        res.render('pages/index', { grams: medias });
+        // console.log(medias[0].id);
     });
 });
 
-app.get('/another', function(req, res) {
-    ig.media('svdmusic', function(images, error) {
-        if(error) {
-            res.send('ERROR!');
-        } else {
-            res.render('pages/insta', { pics: images });
-        }
+app.get('/insta', function(req, res) {
+    instagram.media_popular(function(err, medias, remaining, limit) {
+        res.render('pages/insta.ejs', { grams: medias, "title": "Parse Video" });
+        console.log(medias);
     });
 });
 

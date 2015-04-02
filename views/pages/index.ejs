@@ -14,7 +14,15 @@
                         <% grams.forEach(function(gram) { %>
                           <div class="col-md-4 images">
                             <div class="username">
-                                <h1 class="alert alert-info"><a href="https://instagram.com/<%= gram.user.username %>/" style="color: #fff;" data-toggle="tooltip" data-placement="top" title="<%= gram.user.username %>" target="_blank"><%= gram.user.username %></a></h1>
+                                <% if(parseInt(gram.likes.count) >= 10000 && parseInt(gram.likes.count) < 50000) { %>
+                                    <h3 class="alert alert-info username"><a href="https://instagram.com/<%= gram.user.username %>/" style="color: #fff;" data-toggle="tooltip" data-placement="top" title="" target="_blank" data-original-title="<%= gram.user.username %>"><%= gram.user.username %> <span class="glyphicon glyphicon-star put-me-down-star"></span> <span class="glyphicon glyphicon-star put-me-down-star"></span></a></h3>
+                                <% } %>
+                                <% if(parseInt(gram.likes.count) > 50000) { %>
+                                    <h3 class="alert alert-info username"><a href="https://instagram.com/<%= gram.user.username %>/" style="color: #fff;" data-toggle="tooltip" data-placement="top" title="" target="_blank" data-original-title="<%= gram.user.username %>"><%= gram.user.username %> <span class="glyphicon glyphicon-star put-me-down-star"></span> <span class="glyphicon glyphicon-star put-me-down-star"></span> <span class="glyphicon glyphicon-star put-me-down-star"></span></a></h3>
+                                <% } %>
+                                <% if(parseInt(gram.likes.count) < 10000) { %>
+                                    <h3 class="alert alert-info username"><a href="https://instagram.com/<%= gram.user.username %>/" style="color: #fff;" data-toggle="tooltip" data-placement="top" title="" target="_blank" data-original-title="<%= gram.user.username %>"><%= gram.user.username %> <span class="glyphicon glyphicon-star put-me-down-star"></span></a></h3>
+                                <% } %>
                             </div>
                             <% if(gram.type === 'video') { %>
                                 <a href="<%= gram.videos.standard_resolution.url %>" target="_blank"><img class="img-responsive img-thumbnail img-shadow" src="<%= gram.images.standard_resolution.url %>" /></a>
@@ -29,15 +37,7 @@
                                 <% } %>
                             </div>
                             <div class="bar">
-                                <% if(parseInt(gram.likes.count) >= 10000 && parseInt(gram.likes.count) < 50000) { %>
-                                    <span class="glyphicon glyphicon-heart gold"></span> <span class="put-me-up gold"><%= gram.likes.count %></span>
-                                <% } %>
-                                <% if(parseInt(gram.likes.count) >= 50000) { %>
-                                    <span class="glyphicon glyphicon-heart red"></span> <span class="put-me-up red"><%= gram.likes.count %></span>
-                                <% } %>
-                                <% if(parseInt(gram.likes.count) < 10000) { %>
-                                    <span class="glyphicon glyphicon-heart grey-color"></span> <span class="put-me-up"><%= gram.likes.count %></span>
-                                <% } %>
+                                <span class="glyphicon glyphicon-heart grey-color"></span> <span class="put-me-up"><%= gram.likes.count %></span>
                                 <br />
                                 <span class="glyphicon glyphicon-comment grey-color"></span> <span class="put-me-up"><%= gram.comments.count %></span>
                             </div>

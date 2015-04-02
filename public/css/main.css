@@ -33,15 +33,11 @@ footer {
     z-index: 1000;
 }
 
-.username {
-    padding-top: 50px;
-}
-
-.username h1 a:hover {
+.username h3 a:hover {
     text-decoration: none;
 }
 
-.username h1 a {
+.username h3 a {
     text-decoration: none;
 }
 
@@ -84,6 +80,12 @@ footer {
     position: relative;
     padding-left: 4px;
     top: 3px;
+}
+
+.put-me-down-star {
+    position: relative;
+    padding-left: 4px;
+    top: 4px;
 }
 
 .put-me-up-logo {

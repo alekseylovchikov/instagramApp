@@ -3,11 +3,7 @@ var app = express();
 var instagram = require('instagram-node').instagram();
 var port = Number(process.env.PORT || 3000);
 var secrets = require('./secrets.json');
-var insta = require('instagram').createClient(secrets.client_id, secrets.client_secret);
 var ig = require('instagram-node-lib');
-var helpers = require('express-helpers')(app);
-var result;
-var sass = require('sass');
 
 ig.set('client_id', secrets.client_id);
 ig.set('client_secret', secrets.client_secret);

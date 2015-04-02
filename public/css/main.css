@@ -17,6 +17,13 @@ footer {
     top: -3px;
 }
 
+.put-me-up-follow {
+    position: relative;
+    padding-left: 4px;
+    top: -8px;
+    right: -8px;
+}
+
 .bar {
     float: left;
     padding-top: 10px;
@@ -121,4 +128,16 @@ footer {
 
 .logo-text {
     padding-left: 11px;
+}
+
+.follow-right {
+  float: right;
+}
+
+.btn-left {
+  float: left;
+}
+
+.btn-right {
+  float: right;
 }

@@ -18,7 +18,7 @@
                                     <h4 class="alert alert-info username"><a href="https://instagram.com/<%= gram.user.username %>/" style="color: #fff;" data-toggle="tooltip" data-placement="top" title="" target="_blank" data-original-title="<%= gram.user.username %>"><%= gram.user.username %> <span class="glyphicon glyphicon-star put-me-down-star"></span> <span class="glyphicon glyphicon-star put-me-down-star"></span></a> <span class="follow-right put-me-up-follow"><button type="button" class="btn btn-default">Follow</button></span></h4>
                                 <% } %>
                                 <% if(parseInt(gram.likes.count) > 50000) { %>
-                                    <h4 class="alert alert-info username"><a href="https://instagram.com/<%= gram.user.username %>/" style="color: #fff;" data-toggle="tooltip" data-placement="top" title="" target="_blank" data-original-title="<%= gram.user.username %>"><%= gram.user.username %> <span class="glyphicon glyphicon-star put-me-down-star"></span> <span class="glyphicon glyphicon-star put-me-down-star"></span> <span class="glyphicon glyphicon-star put-me-down-star"></span></a> <span class="follow-right put-me-up-follow"><button type="button" class="btn btn-default">Follow</button></span></h4>
+                                    <h4 class="alert alert-info username"><a href="https://instagram.com/<%= gram.user.username %>/" style="color: #fff;" data-toggle="tooltip" data-placement="top" title="" target="_blank" data-original-title="<%= gram.user.username %>"><%= gram.user.username %> <span class="glyphicon glyphicon-star put-me-down-star"></span> <span class="glyphicon glyphicon-star put-me-down-star"></span> <span class="glyphicon glyphicon-star put-me-down-star"></span></a> <span class="follow-right put-me-up-follow"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span></button></span></h4>
                                 <% } %>
                                 <% if(parseInt(gram.likes.count) < 10000) { %>
                                     <h4 class="alert alert-info username"><a href="https://instagram.com/<%= gram.user.username %>/" style="color: #fff;" data-toggle="tooltip" data-placement="top" title="" target="_blank" data-original-title="<%= gram.user.username %>"><%= gram.user.username %> <span class="glyphicon glyphicon-star put-me-down-star"></span></a> <span class="follow-right put-me-up-follow"><button type="button" class="btn btn-default">Follow</button></span></h4>
@@ -43,14 +43,14 @@
                             </div>
                             <div class="row full-screen">
                                 <div class="col-md-2">
-                                    <button type="button" class="btn btn-danger">Like</button>
+                                    <button type="button" data-toggle="popover" data-content="Please, login for this" data-original-title="Information" class="btn btn-danger">Like</button>
                                 </div>
                                 <div class="col-md-4">
-                                    <button type="button" class="btn btn-info">Don't Show</button>
+                                    <button type="button" data-toggle="popover" data-content="Please, login for this" data-original-title="Information" class="btn btn-info">Don't Show</button>
                                 </div>
                                 <% if(gram.caption !== null) { %>
                                     <div class="col-md-6">
-                                        <span class="btn-right"><button type="button" data-toggle="popover" class="btn btn-primary" data-content="<%= gram.caption.text %>" data-original-title="Description">Description</button></span>
+                                        <span class="btn-right"><button type="button" data-toggle="popover" class="btn btn-primary" data-content="<%= gram.caption.text %>" data-original-title="Description"><span class="glyphicon glyphicon-comment"></span></button></span>
                                     </div>
                                 <% } %>
                             </div>

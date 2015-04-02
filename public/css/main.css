@@ -40,11 +40,11 @@ footer {
     z-index: 1000;
 }
 
-.username h3 a:hover {
+.username h4 a:hover {
     text-decoration: none;
 }
 
-.username h3 a {
+.username h4 a {
     text-decoration: none;
 }
 
@@ -140,4 +140,5 @@ footer {
 
 .btn-right {
   float: right;
+  right: -20px;
 }

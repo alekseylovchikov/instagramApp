@@ -7,12 +7,14 @@ var insta = require('instagram').createClient(secrets.client_id, secrets.client_
 var ig = require('instagram-node-lib');
 var helpers = require('express-helpers')(app);
 var result;
+var sass = require('sass');
 
 ig.set('client_id', secrets.client_id);
 ig.set('client_secret', secrets.client_secret);
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
+app.set();
 app.use(express.static(__dirname + '/public'));
 
 instagram.use({

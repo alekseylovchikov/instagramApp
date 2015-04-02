@@ -4,65 +4,75 @@
         <% include ../partials/head.ejs %>
     </head>
     <body>
-      <article class="container">
         <header>
             <% include ../partials/header.ejs %>
         </header>
-
-        <main id="content">
-          <div class="container-fluid">
-            <div class="row">
-
-                <% grams.forEach(function(gram) { %>
-                  <div class="col-md-4 images">
-                    <div class="username">
-                        <h1 class="alert alert-info"><a href="https://instagram.com/<%= gram.user.username %>/" style="color: #fff;" data-toggle="tooltip" data-placement="top" title="<%= gram.user.username %>" target="_blank"><%= gram.user.username %></a></h1>
-                    </div>
-                    <% if(gram.type === 'video') { %>
-                        <a href="<%= gram.videos.standard_resolution.url %>" target="_blank"><img class="img-responsive img-thumbnail img-shadow" src="<%= gram.images.standard_resolution.url %>" /></a>
-                    <% } else { %>
-                        <a href="<%= gram.link %>" target="_blank"><img class="img-responsive img-thumbnail img-shadow" src="<%= gram.images.standard_resolution.url %>" /></a>
-                    <% } %>
-                    <div class="type-post">
-                        <% if(gram.type === 'video') { %>
-                            <strong>Type: <span class="glyphicon glyphicon-facetime-video grey-color put-me-down"></span></strong>
-                        <% } else { %>
-                            <strong>Type: <span class="glyphicon glyphicon-picture grey-color put-me-down"></span></strong>
-                        <% } %>
-                    </div>
-                    <div class="bar">
-                        <span class="glyphicon glyphicon-heart grey-color"></span> <span class="put-me-up"><%= gram.likes.count %></span>
-                        <br />
-                        <span class="glyphicon glyphicon-comment grey-color"></span> <span class="put-me-up"><%= gram.comments.count %></span>
-                    </div>
-                    <% if(gram.caption !== null) { %>
-                        <div class="full-screen">
-                            <button type="button" data-toggle="popover" class="btn btn-primary" data-content="<%= gram.caption.text %>" data-original-title="Description">Description</button>
-                        </div>
-                    <% } %>
-                    <div class="full-screen tags">
-                        <% gram.tags.forEach(function(tag) { %>
-                            #<%= tag %>
+        <article class="container">
+            <main id="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <% grams.forEach(function(gram) { %>
+                          <div class="col-md-4 images">
+                            <div class="username">
+                                <h1 class="alert alert-info"><a href="https://instagram.com/<%= gram.user.username %>/" style="color: #fff;" data-toggle="tooltip" data-placement="top" title="<%= gram.user.username %>" target="_blank"><%= gram.user.username %></a></h1>
+                            </div>
+                            <% if(gram.type === 'video') { %>
+                                <a href="<%= gram.videos.standard_resolution.url %>" target="_blank"><img class="img-responsive img-thumbnail img-shadow" src="<%= gram.images.standard_resolution.url %>" /></a>
+                            <% } else { %>
+                                <a href="<%= gram.link %>" target="_blank"><img class="img-responsive img-thumbnail img-shadow" src="<%= gram.images.standard_resolution.url %>" /></a>
+                            <% } %>
+                            <div class="type-post">
+                                <% if(gram.type === 'video') { %>
+                                    <strong>Type: <span class="glyphicon glyphicon-facetime-video grey-color put-me-down"></span></strong>
+                                <% } else { %>
+                                    <strong>Type: <span class="glyphicon glyphicon-picture grey-color put-me-down"></span></strong>
+                                <% } %>
+                            </div>
+                            <div class="bar">
+                                <% if(parseInt(gram.likes.count) >= 10000 && parseInt(gram.likes.count) < 50000) { %>
+                                    <span class="glyphicon glyphicon-heart gold"></span> <span class="put-me-up gold"><%= gram.likes.count %></span>
+                                <% } %>
+                                <% if(parseInt(gram.likes.count) >= 50000) { %>
+                                    <span class="glyphicon glyphicon-heart red"></span> <span class="put-me-up red"><%= gram.likes.count %></span>
+                                <% } %>
+                                <% if(parseInt(gram.likes.count) < 10000) { %>
+                                    <span class="glyphicon glyphicon-heart grey-color"></span> <span class="put-me-up"><%= gram.likes.count %></span>
+                                <% } %>
+                                <br />
+                                <span class="glyphicon glyphicon-comment grey-color"></span> <span class="put-me-up"><%= gram.comments.count %></span>
+                            </div>
+                            <% if(gram.caption !== null) { %>
+                                <div class="full-screen">
+                                    <button type="button" data-toggle="popover" class="btn btn-primary" data-content="<%= gram.caption.text %>" data-original-title="Description">Description</button>
+                                </div>
+                            <% } %>
+                            <div class="full-screen tags">
+                                <% gram.tags.forEach(function(tag) { %>
+                                    #<%= tag %>
+                                <% }); %>
+                            </div>
+                          </div>
                         <% }); %>
                     </div>
-                  </div>
-                <% }); %>
-              
-            </div>
-          </div>
-        </main>
-      </article>
+                </div>
+            </main>
+        </article>
 
-        <div class="air"></div>    
+        <div class="air"></div>
     
-      <footer class="main-footer">
-          <% include ../partials/footer.ejs %>
-      </footer>
-      <script>
+        <footer class="main-footer">
+            <% include ../partials/footer.ejs %>
+        </footer>
+        <script>
           $(document).ready(function() {
               $('[data-toggle="popover"]').popover({'placement': 'top'});
               $('[data-toggle="tooltip"]').tooltip();
           });
-      </script>
+        </script>
+        <script>
+            function reload() {
+                window.location = "/";
+            }
+        </script>
     </body>
 </html>

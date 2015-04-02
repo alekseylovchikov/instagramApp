@@ -15,6 +15,7 @@
     "instagram": "0.0.4",
     "instagram-node": "^0.5.6",
     "instagram-node-lib": "^0.1.1",
+    "node-sass": "^2.1.1",
     "passport": "^0.2.1",
     "passport-instagram": "^0.1.2",
     "util": "^0.10.3"

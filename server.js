@@ -29,7 +29,7 @@ app.get('/', function(req, res) {
 
 app.get('/insta', function(req, res) {
     instagram.media_popular(function(err, medias, remaining, limit) {
-        res.render('pages/insta.ejs', { grams: medias, "title": "Parse Video" });
+        res.render('pages/insta.ejs', { grams: medias });
         console.log(medias);
     });
 });

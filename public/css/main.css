@@ -90,12 +90,21 @@ footer {
     top: 3px;    
 }
 
-.brand-text {
-    color: #493b79;
-}
-
 .put-me-up-logo {
     position: relative;
     padding-left: 4px;
     top: -9px;
+}
+
+.brand-text {
+    color: #493b79;
+}
+
+.put-me-up-logo a {
+    color: #493b79;
+    text-decoration: none;
+}
+
+.put-me-up-logo a:hover {
+    text-decoration: none;
 }

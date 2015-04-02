@@ -9,19 +9,8 @@
         </header>
 
         <main id="content">
-            <h1><%= title %></h1>
             <div class="row">
-                <% grams.forEach(function(gram) { %>
-                    <% if(gram.type === 'video') { %>
-                        <div class="col-md-4 images">
-                            <video class="img-responsive" src="<%= gram.videos.standard_resolution.url %>" controls></video>
-                        </div>
-                    <% } else { %>
-                        <div class="col-md-4 images">
-                            <img class="img-shadow img-responsive" src="<%= gram.images.standard_resolution.url %>" alt=""/>
-                        </div>
-                    <% } %>
-                <% }); %>
+                <video src="" controls></video>
             </div>
         </main>
 

@@ -3,14 +3,9 @@ var app = express();
 var instagram = require('instagram-node').instagram();
 var port = Number(process.env.PORT || 3000);
 var secrets = require('./secrets.json');
-var ig = require('instagram-node-lib');
-
-ig.set('client_id', secrets.client_id);
-ig.set('client_secret', secrets.client_secret);
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
-app.set();
 app.use(express.static(__dirname + '/public'));
 
 instagram.use({
@@ -21,14 +16,6 @@ instagram.use({
 app.get('/', function(req, res) {
     instagram.media_popular(function(err, medias, remaining, limit) {
         res.render('pages/index', { grams: medias });
-        // console.log(medias[0].id);
-    });
-});
-
-app.get('/insta', function(req, res) {
-    instagram.media_popular(function(err, medias, remaining, limit) {
-        res.render('pages/insta.ejs', { grams: medias });
-        console.log(medias);
     });
 });
 

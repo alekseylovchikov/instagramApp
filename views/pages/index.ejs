@@ -12,16 +12,16 @@
                 <div class="container-fluid">
                     <div class="row">
                         <% grams.forEach(function(gram) { %>
-                          <div class="col-md-4 images">
+                          <div class="col-xs-12 col-sm-6 col-md-4">
                             <div class="username">
                                 <% if(parseInt(gram.likes.count) >= 10000 && parseInt(gram.likes.count) < 50000) { %>
-                                    <h3 class="alert alert-info username"><a href="https://instagram.com/<%= gram.user.username %>/" style="color: #fff;" data-toggle="tooltip" data-placement="top" title="" target="_blank" data-original-title="<%= gram.user.username %>"><%= gram.user.username %> <span class="glyphicon glyphicon-star put-me-down-star"></span> <span class="glyphicon glyphicon-star put-me-down-star"></span></a></h3>
+                                    <h4 class="alert alert-info username"><a href="https://instagram.com/<%= gram.user.username %>/" style="color: #fff;" data-toggle="tooltip" data-placement="top" title="" target="_blank" data-original-title="<%= gram.user.username %>"><%= gram.user.username %> <span class="glyphicon glyphicon-star put-me-down-star"></span> <span class="glyphicon glyphicon-star put-me-down-star"></span></a> <span class="follow-right put-me-up-follow"><button type="button" class="btn btn-default">Follow</button></span></h4>
                                 <% } %>
                                 <% if(parseInt(gram.likes.count) > 50000) { %>
-                                    <h3 class="alert alert-info username"><a href="https://instagram.com/<%= gram.user.username %>/" style="color: #fff;" data-toggle="tooltip" data-placement="top" title="" target="_blank" data-original-title="<%= gram.user.username %>"><%= gram.user.username %> <span class="glyphicon glyphicon-star put-me-down-star"></span> <span class="glyphicon glyphicon-star put-me-down-star"></span> <span class="glyphicon glyphicon-star put-me-down-star"></span></a></h3>
+                                    <h4 class="alert alert-info username"><a href="https://instagram.com/<%= gram.user.username %>/" style="color: #fff;" data-toggle="tooltip" data-placement="top" title="" target="_blank" data-original-title="<%= gram.user.username %>"><%= gram.user.username %> <span class="glyphicon glyphicon-star put-me-down-star"></span> <span class="glyphicon glyphicon-star put-me-down-star"></span> <span class="glyphicon glyphicon-star put-me-down-star"></span></a> <span class="follow-right put-me-up-follow"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span></button></span></h4>
                                 <% } %>
                                 <% if(parseInt(gram.likes.count) < 10000) { %>
-                                    <h3 class="alert alert-info username"><a href="https://instagram.com/<%= gram.user.username %>/" style="color: #fff;" data-toggle="tooltip" data-placement="top" title="" target="_blank" data-original-title="<%= gram.user.username %>"><%= gram.user.username %> <span class="glyphicon glyphicon-star put-me-down-star"></span></a></h3>
+                                    <h4 class="alert alert-info username"><a href="https://instagram.com/<%= gram.user.username %>/" style="color: #fff;" data-toggle="tooltip" data-placement="top" title="" target="_blank" data-original-title="<%= gram.user.username %>"><%= gram.user.username %> <span class="glyphicon glyphicon-star put-me-down-star"></span></a> <span class="follow-right put-me-up-follow"><button type="button" class="btn btn-default">Follow</button></span></h4>
                                 <% } %>
                             </div>
                             <% if(gram.type === 'video') { %>
@@ -41,15 +41,16 @@
                                 <br />
                                 <span class="glyphicon glyphicon-comment grey-color"></span> <span class="put-me-up"><%= gram.comments.count %></span>
                             </div>
-                            <% if(gram.caption !== null) { %>
-                                <div class="full-screen">
-                                    <button type="button" data-toggle="popover" class="btn btn-primary" data-content="<%= gram.caption.text %>" data-original-title="Description">Description</button>
-                                </div>
-                            <% } %>
-                            <div class="full-screen tags">
-                                <% gram.tags.forEach(function(tag) { %>
-                                    #<%= tag %>
-                                <% }); %>
+                            <div class="full-screen">
+                                <table class="table table-responsive">
+                                    <tr>
+                                        <td><button type="button" data-toggle="popover" data-content="Please, login" data-original-title="Information" class="btn btn-default"><span class="glyphicon glyphicon-heart"></span></button></td>
+                                        <td><button type="button" data-toggle="popover" data-content="Please, login" data-original-title="Information" class="btn btn-info">Don't Show</button></td>
+                                        <% if(gram.caption !== null) { %>
+                                            <td><span class="btn-right"><button type="button" data-toggle="popover" class="btn btn-primary" data-content="<%= gram.caption.text %>" data-original-title="Description">Description</button></span></td>
+                                        <% } %>
+                                    </tr>
+                                </table>
                             </div>
                           </div>
                         <% }); %>
@@ -59,7 +60,7 @@
         </article>
 
         <div class="air"></div>
-    
+
         <footer class="main-footer">
             <% include ../partials/footer.ejs %>
         </footer>

@@ -17,6 +17,13 @@ footer {
     top: -3px;
 }
 
+.put-me-up-follow {
+    position: relative;
+    padding-left: 4px;
+    top: -8px;
+    right: -8px;
+}
+
 .bar {
     float: left;
     padding-top: 10px;
@@ -33,11 +40,11 @@ footer {
     z-index: 1000;
 }
 
-.username h3 a:hover {
+.username h4 a:hover {
     text-decoration: none;
 }
 
-.username h3 a {
+.username h4 a {
     text-decoration: none;
 }
 
@@ -121,4 +128,17 @@ footer {
 
 .logo-text {
     padding-left: 11px;
+}
+
+.follow-right {
+  float: right;
+}
+
+.btn-left {
+  float: left;
+}
+
+.btn-right {
+  float: right;
+  right: -20px;
 }

@@ -142,3 +142,12 @@ footer {
   float: right;
   right: -20px;
 }
+
+.star-images {
+    position: absolute;
+    width: 100%;
+}
+
+.one-image {
+
+}

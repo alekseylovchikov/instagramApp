@@ -4,64 +4,31 @@
         <% include ../partials/head.ejs %>
     </head>
     <body>
-        <header>
-            <% include ../partials/header.ejs %>
-        </header>
+        <div class="jumbotron">
+            <div class="container">
+                <h1><a href="/">POPPICS</a></h1>
+                <p>Popular instagram pictures</p>
+            </div>
+        </div>
         <article class="container">
             <main id="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <% grams.forEach(function(gram) { %>
-                          <div class="col-xs-12 col-sm-6 col-md-4">
-                            <div class="username">
-                                <% if(parseInt(gram.likes.count) >= 10000 && parseInt(gram.likes.count) < 50000) { %>
-                                    <h4 class="alert alert-info username"><a href="https://instagram.com/<%= gram.user.username %>/" style="color: #fff;" data-toggle="tooltip" data-placement="top" title="" target="_blank" data-original-title="<%= gram.user.username %>"><%= gram.user.username %> <span class="glyphicon glyphicon-star put-me-down-star"></span> <span class="glyphicon glyphicon-star put-me-down-star"></span></a> <span class="follow-right put-me-up-follow"><button type="button" class="btn btn-default">Follow</button></span></h4>
-                                <% } %>
-                                <% if(parseInt(gram.likes.count) > 50000) { %>
-                                    <h4 class="alert alert-info username"><a href="https://instagram.com/<%= gram.user.username %>/" style="color: #fff;" data-toggle="tooltip" data-placement="top" title="" target="_blank" data-original-title="<%= gram.user.username %>"><%= gram.user.username %> <span class="glyphicon glyphicon-star put-me-down-star"></span> <span class="glyphicon glyphicon-star put-me-down-star"></span> <span class="glyphicon glyphicon-star put-me-down-star"></span></a> <span class="follow-right put-me-up-follow"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span></button></span></h4>
-                                <% } %>
-                                <% if(parseInt(gram.likes.count) < 10000) { %>
-                                    <h4 class="alert alert-info username"><a href="https://instagram.com/<%= gram.user.username %>/" style="color: #fff;" data-toggle="tooltip" data-placement="top" title="" target="_blank" data-original-title="<%= gram.user.username %>"><%= gram.user.username %> <span class="glyphicon glyphicon-star put-me-down-star"></span></a> <span class="follow-right put-me-up-follow"><button type="button" class="btn btn-default">Follow</button></span></h4>
-                                <% } %>
+                <div class="Collage effect-parent">
+                    <% grams.forEach(function(gram) { %>
+                        <% if(gram.caption !== null) { %>
+                            <div class="Image_Wrapper" data-caption="Profile name: <%= gram.user.username %><br />Description: <%= gram.caption.text %><br />Likes: <%= gram.likes.count %>">
+                                <a href="<%= gram.link %>" target="_blank"><img width="200" src="<%= gram.images.standard_resolution.url %>" alt="<%= gram.user.username %>"></a>
                             </div>
-                            <% if(gram.type === 'video') { %>
-                                <a href="<%= gram.videos.standard_resolution.url %>" target="_blank"><img class="img-responsive img-thumbnail img-shadow" src="<%= gram.images.standard_resolution.url %>" /></a>
-                            <% } else { %>
-                                <a href="<%= gram.link %>" target="_blank"><img class="img-responsive img-thumbnail img-shadow" src="<%= gram.images.standard_resolution.url %>" /></a>
-                            <% } %>
-                            <div class="type-post">
-                                <% if(gram.type === 'video') { %>
-                                    <strong>Type: <span class="glyphicon glyphicon-facetime-video grey-color put-me-down"></span></strong>
-                                <% } else { %>
-                                    <strong>Type: <span class="glyphicon glyphicon-picture grey-color put-me-down"></span></strong>
-                                <% } %>
+                        <% } else { %>
+                            <div class="Image_Wrapper" data-caption="Profile name: <%= gram.user.username %>">
+                                <a href="<%= gram.link %>" target="_blank"><img width="200" src="<%= gram.images.standard_resolution.url %>" alt="<%= gram.user.username %><br />Likes: <%= gram.likes.count %>"></a>
                             </div>
-                            <div class="bar">
-                                <span class="glyphicon glyphicon-heart grey-color"></span> <span class="put-me-up"><%= gram.likes.count %></span>
-                                <br />
-                                <span class="glyphicon glyphicon-comment grey-color"></span> <span class="put-me-up"><%= gram.comments.count %></span>
-                            </div>
-                            <div class="full-screen">
-                                <table class="table table-responsive">
-                                    <tr>
-                                        <td><button type="button" data-toggle="popover" data-content="Please, login" data-original-title="Information" class="btn btn-default"><span class="glyphicon glyphicon-heart"></span></button></td>
-                                        <td><button type="button" data-toggle="popover" data-content="Please, login" data-original-title="Information" class="btn btn-info">Don't Show</button></td>
-                                        <% if(gram.caption !== null) { %>
-                                            <td><span class="btn-right"><button type="button" data-toggle="popover" class="btn btn-primary" data-content="<%= gram.caption.text %>" data-original-title="Description">Description</button></span></td>
-                                        <% } %>
-                                    </tr>
-                                </table>
-                            </div>
-                          </div>
-                        <% }); %>
-                    </div>
+                        <% } %>
+                    <% }); %>
                 </div>
             </main>
         </article>
-
         <div class="air"></div>
-
-        <footer class="main-footer">
+        <footer id="contacts" class="main-footer">
             <% include ../partials/footer.ejs %>
         </footer>
         <script>

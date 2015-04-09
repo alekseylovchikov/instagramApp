@@ -16,6 +16,7 @@ instagram.use({
 app.get('/', function(req, res) {
     instagram.media_popular(function(err, medias, remaining, limit) {
         res.render('pages/index', { grams: medias });
+        console.log(medias);
     });
 });
 

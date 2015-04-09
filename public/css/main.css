@@ -40,12 +40,13 @@ footer {
     z-index: 1000;
 }
 
-.username h4 a:hover {
+.username a:hover {
     text-decoration: none;
 }
 
-.username h4 a {
+.username a {
     text-decoration: none;
+    color: #fff;
 }
 
 .img-shadow {
@@ -148,6 +149,16 @@ footer {
     width: 100%;
 }
 
-.one-image {
+.post-image {
+    float: left;
+    width: 50%;
+}
 
+.posts {
+    padding: 10px;
+}
+
+.fixed-text {
+    width: 100%;
+    height: 10px;
 }

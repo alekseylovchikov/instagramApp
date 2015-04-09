@@ -12,17 +12,30 @@
         </div>
         <article class="container">
             <main id="content">
-                <div class="Collage effect-parent">
+                <div class="row">
                     <% grams.forEach(function(gram) { %>
-                        <% if(gram.caption !== null) { %>
-                            <div class="Image_Wrapper" data-caption="Profile name: <%= gram.user.username %><br />Description: <%= gram.caption.text %><br />Likes: <%= gram.likes.count %>">
-                                <a href="<%= gram.link %>" target="_blank"><img width="200" src="<%= gram.images.standard_resolution.url %>" alt="<%= gram.user.username %>"></a>
-                            </div>
-                        <% } else { %>
-                            <div class="Image_Wrapper" data-caption="Profile name: <%= gram.user.username %>">
-                                <a href="<%= gram.link %>" target="_blank"><img width="200" src="<%= gram.images.standard_resolution.url %>" alt="<%= gram.user.username %><br />Likes: <%= gram.likes.count %>"></a>
-                            </div>
-                        <% } %>
+                        <div class="col-sm-6 col-md-6">
+                            <h4 class="alert alert-info username"><a href="https://instagram.com/<%= gram.user.username %>/" target="_blank"><%= gram.user.username %></a></h4>
+                            <% if(gram.caption !== null) { %>
+                                <div class="thumbnail">
+                                    <a href="<%= gram.link %>" target="_blank"><img class="img-responsive img-thumbnail" src="<%= gram.images.standard_resolution.url %>" alt="<%= gram.user.username %>"/></a>
+                                    <div class="caption">
+                                        <p class="fixed-text"></p>
+                                        <br/>
+                                        <p><button type="button" class="btn btn-danger">Like</button> <button type="button" class="btn btn-success">Follow</button> <button type="button" class="btn btn-primary" data-container="body" data-toggle="popover" data-placement="top" data-content="<%= gram.caption.text %>">Show caption</button></p>
+                                    </div>
+                                </div>
+                            <% } else { %>
+                                <div class="thumbnail">
+                                    <a href="<%= gram.link %>" target="_blank"><img class="img-responsive img-thumbnail" src="<%= gram.images.standard_resolution.url %>" alt="<%= gram.user.username %>"/></a>
+                                    <div class="caption">
+                                        <p class="fixed-text"></p>
+                                        <br/>
+                                        <p><a href="" class="btn btn-danger" role="button">Like</a> <a href="" class="btn btn-success" role="button">Follow</a></p>
+                                    </div>
+                                </div>
+                            <% } %>
+                        </div>
                     <% }); %>
                 </div>
             </main>

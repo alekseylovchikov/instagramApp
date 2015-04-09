@@ -7,37 +7,6 @@
 <script src="js/jquery.collagePlus.js"></script>
 <script src="js/jquery.removeWhitespace.js"></script>
 <script src="js/jquery.collageCaption.js"></script>
-<script>
-    /*$(window).load(function () {
-        $(document).ready(function(){
-            collage();
-            $('.Collage').collageCaption();
-        });
-    });
-
-    function collage() {
-        $('.Collage').removeWhitespace().collagePlus(
-                {
-                    'fadeSpeed'     : 2000,
-                    'targetHeight'  : 200
-                }
-        );
-    };
-
-    var resizeTimer = null;
-    $(window).bind('resize', function() {
-        // hide all the images until we resize them
-        $('.Collage .Image_Wrapper').css("opacity", 0);
-        // set a timer to re-apply the plugin
-        if (resizeTimer) clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(collage, 200);
-    });*/
-    $(window).load(function() {
-        $(document).ready(function() {
-            $('.Collage').removeWhitespace().collagePlus({ 'fadeSpeed': 200, 'allowPartialLastRow': false }).collageCaption();
-        });
-    });
-</script>
 <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.4/lumen/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="css/main.css" />

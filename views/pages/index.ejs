@@ -41,6 +41,12 @@
             function reload() {
                 window.location = "/";
             }
+
+            $(window).load(function() {
+                $(document).ready(function() {
+                    $('.Collage').removeWhitespace().collagePlus({ 'fadeSpeed': 200, 'allowPartialLastRow': false }).collageCaption();
+                });
+            });
         </script>
     </body>
 </html>

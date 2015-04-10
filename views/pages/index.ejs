@@ -4,12 +4,7 @@
         <% include ../partials/head.ejs %>
     </head>
     <body>
-        <div class="jumbotron">
-            <div class="container">
-                <h1><a href="/">POPPI</a></h1>
-                <p>Popular instagram pictures</p>
-            </div>
-        </div>
+        <% include ../partials/header.ejs %>
         <article class="container">
             <main id="content">
                 <div class="row">
@@ -26,9 +21,9 @@
                                 <div class="caption">
                                     <br/>
                                     <p>
-                                        <button type="button" class="btn btn-danger">Like</button> <button type="button" class="btn btn-success">Follow</button>
+                                        <button type="button" class="btn btn-danger" title="Like"><span class="glyphicon glyphicon-heart"></span></button> <button type="button" class="btn btn-success" title="Follow"><span class="glyphicon glyphicon-plus"></span></button>
                                         <% if(gram.caption !== null) {  %>
-                                            <button type="button" class="btn btn-primary" data-container="body" data-toggle="popover" data-placement="top" data-content="<%= gram.caption.text %>">Show caption</button>
+                                            <button type="button" class="btn btn-primary" data-container="body" data-toggle="popover" data-placement="top" data-content="<%= gram.caption.text %>"><span class="glyphicon glyphicon-comment"></span></button>
                                         <% } %>
                                     </p>
                                 </div>

@@ -26,29 +26,24 @@
                 <div class="row">
                     <% grams.forEach(function(gram) { %>
                         <div class="col-sm-6 col-md-6">
-                            <% if(gram.caption !== null) { %>
-                                <div class="thumbnail img-shadow">
-                                    <p><a href="https://instagram.com/<%= gram.user.username %>/" target="_blank"><img class="img-circle img-thumbnail" width="80" src="<%= gram.user.profile_picture %>" alt="<%= gram.user.username %>"/></a>
-                                        <a href="https://instagram.com/<%= gram.user.username %>/"><%= gram.user.username %></a><br/><strong><%= gram.user.full_name %></strong></p>
-                                    <p><a href="<%= gram.link %>" target="_blank"><img class="img-responsive img-thumbnail" src="<%= gram.images.standard_resolution.url %>" alt="<%= gram.user.username %>"/></a></p>
-                                    <div class="caption">
-                                        <p class="fixed-text"></p>
-                                        <br/>
-                                        <p><button type="button" class="btn btn-danger">Like</button> <button type="button" class="btn btn-success">Follow</button> <button type="button" class="btn btn-primary" data-container="body" data-toggle="popover" data-placement="top" data-content="<%= gram.caption.text %>">Show caption</button></p>
-                                    </div>
+                            <div class="thumbnail img-shadow">
+                                <section class="profile-pic">
+                                    <p><a href="https://instagram.com/<%= gram.user.username %>/" target="_blank"><img class="img-circle img-thumbnail" width="80" src="<%= gram.user.profile_picture %>" alt="<%= gram.user.username %>"/></a></p>
+                                </section>
+                                <section class="profile-info">
+                                    <p><a href="https://instagram.com/<%= gram.user.username %>/"><%= gram.user.username %></a><br/><strong><%= gram.user.full_name %></strong></p>
+                                </section>
+                                <p><a href="<%= gram.link %>" target="_blank"><img class="img-responsive img-thumbnail" src="<%= gram.images.standard_resolution.url %>" alt="<%= gram.user.username %>"/></a></p>
+                                <div class="caption">
+                                    <br/>
+                                    <p>
+                                        <button type="button" class="btn btn-danger">Like</button> <button type="button" class="btn btn-success">Follow</button>
+                                        <% if(gram.caption !== null) {  %>
+                                            <button type="button" class="btn btn-primary" data-container="body" data-toggle="popover" data-placement="top" data-content="<%= gram.caption.text %>">Show caption</button>
+                                        <% } %>
+                                    </p>
                                 </div>
-                            <% } else { %>
-                                <div class="thumbnail img-shadow">
-                                    <p><a href="https://instagram.com/<%= gram.user.username %>/" target="_blank"><img class="img-circle img-thumbnail" width="80" src="<%= gram.user.profile_picture %>" alt="<%= gram.user.username %>"/></a>
-                                        <a href="https://instagram.com/<%= gram.user.username %>/"><%= gram.user.username %></a><br/><strong><%= gram.user.full_name %></strong></p>
-                                    <p><a href="<%= gram.link %>" target="_blank"><img class="img-responsive img-thumbnail" src="<%= gram.images.standard_resolution.url %>" alt="<%= gram.user.username %>"/></a></p>
-                                    <div class="caption">
-                                        <p class="fixed-text"></p>
-                                        <br/>
-                                        <p><a href="" class="btn btn-danger" role="button">Like</a> <a href="" class="btn btn-success" role="button">Follow</a></p>
-                                    </div>
-                                </div>
-                            <% } %>
+                            </div>
                         </div>
                     <% }); %>
                 </div>

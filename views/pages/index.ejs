@@ -17,7 +17,7 @@
         </div>
         <div class="jumbotron">
             <div class="container">
-                <h1><a href="/">POPPICS</a></h1>
+                <h1>POPPICS</h1>
                 <p>Popular instagram pictures</p>
             </div>
         </div>
@@ -27,12 +27,10 @@
                     <% grams.forEach(function(gram) { %>
                         <div class="col-sm-6 col-md-6">
                             <% if(gram.caption !== null) { %>
-                                <div class="thumbnail">
-                                    <a href="https://instagram.com/<%= gram.user.username %>/" target="_blank"><img class="img-circle profile-pic" width="80" src="<%= gram.user.profile_picture %>" alt="<%= gram.user.username %>"/></a>
-                                    <a href="https://instagram.com/<%= gram.user.username %>/" target="_blank"><strong><%= gram.user.username %></strong></a>
-                                    <br/>
-                                    <strong><%= gram.user.full_name %></strong>
-                                    <a href="<%= gram.link %>" target="_blank"><img class="img-responsive img-thumbnail" src="<%= gram.images.standard_resolution.url %>" alt="<%= gram.user.username %>"/></a>
+                                <div class="thumbnail img-shadow">
+                                    <p><a href="https://instagram.com/<%= gram.user.username %>/" target="_blank"><img class="img-circle img-thumbnail" width="80" src="<%= gram.user.profile_picture %>" alt="<%= gram.user.username %>"/></a>
+                                        <a href="https://instagram.com/<%= gram.user.username %>/"><%= gram.user.username %></a><br/><strong><%= gram.user.full_name %></strong></p>
+                                    <p><a href="<%= gram.link %>" target="_blank"><img class="img-responsive img-thumbnail" src="<%= gram.images.standard_resolution.url %>" alt="<%= gram.user.username %>"/></a></p>
                                     <div class="caption">
                                         <p class="fixed-text"></p>
                                         <br/>
@@ -40,12 +38,10 @@
                                     </div>
                                 </div>
                             <% } else { %>
-                                <div class="thumbnail">
-                                    <a href="https://instagram.com/<%= gram.user.username %>/" target="_blank"><img class="img-circle profile-pic" width="80" src="<%= gram.user.profile_picture %>" alt="<%= gram.user.username %>"/></a>
-                                    <a href="https://instagram.com/<%= gram.user.username %>/" target="_blank"><strong><%= gram.user.username %></strong></a>
-                                    <br/>
-                                    <strong><%= gram.user.full_name %></strong>
-                                    <a href="<%= gram.link %>" target="_blank"><img class="img-responsive img-thumbnail" src="<%= gram.images.standard_resolution.url %>" alt="<%= gram.user.username %>"/></a>
+                                <div class="thumbnail img-shadow">
+                                    <p><a href="https://instagram.com/<%= gram.user.username %>/" target="_blank"><img class="img-circle img-thumbnail" width="80" src="<%= gram.user.profile_picture %>" alt="<%= gram.user.username %>"/></a>
+                                        <a href="https://instagram.com/<%= gram.user.username %>/"><%= gram.user.username %></a><br/><strong><%= gram.user.full_name %></strong></p>
+                                    <p><a href="<%= gram.link %>" target="_blank"><img class="img-responsive img-thumbnail" src="<%= gram.images.standard_resolution.url %>" alt="<%= gram.user.username %>"/></a></p>
                                     <div class="caption">
                                         <p class="fixed-text"></p>
                                         <br/>

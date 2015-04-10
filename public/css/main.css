@@ -172,12 +172,6 @@ footer {
     padding-top: 7px;
 }
 
-.full-screen {
-    float: left;
-    width: 100%;
-    z-index: 1000;
-}
-
 .username a:hover {
     text-decoration: none;
 }
@@ -304,4 +298,17 @@ footer {
 .profile-pic {
     float: left;
     padding: 5px;
+}
+
+.img-info {
+    width: 100%;
+}
+
+.full-screen {
+    width: 100%;
+}
+
+.pic-left {
+    float: left;
+    padding-bottom: 10px;
 }

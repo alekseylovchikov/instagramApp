@@ -4,20 +4,9 @@
         <% include ../partials/head.ejs %>
     </head>
     <body>
-        <div class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <ul class="nav navbar-nav">
-                    <a href="/" class="navbar-brand"><i class="ion-images"></i> POPPICS</a>
-                    <li><a href="#/">Home</a></li>
-                    <li><a href="#/login">Log in</a></li>
-                    <li><a href="#/signup">Sign up</a></li>
-                    <li><a ng-click="logout()" href="">Logout</a></li>
-                </ul>
-            </div>
-        </div>
         <div class="jumbotron">
             <div class="container">
-                <h1>POPPICS</h1>
+                <h1>POPPI</h1>
                 <p>Popular instagram pictures</p>
             </div>
         </div>
@@ -28,7 +17,7 @@
                         <div class="col-sm-6 col-md-6">
                             <div class="thumbnail img-shadow">
                                 <section class="profile-pic">
-                                    <p><a href="https://instagram.com/<%= gram.user.username %>/" target="_blank"><img class="img-circle img-thumbnail" width="80" src="<%= gram.user.profile_picture %>" alt="<%= gram.user.username %>"/></a></p>
+                                    <p class="move-right"><a href="https://instagram.com/<%= gram.user.username %>/" target="_blank"><img class="img-circle img-thumbnail" width="80" src="<%= gram.user.profile_picture %>" alt="<%= gram.user.username %>"/></a></p>
                                 </section>
                                 <section class="profile-info">
                                     <p><a href="https://instagram.com/<%= gram.user.username %>/"><%= gram.user.username %></a><br/><strong><%= gram.user.full_name %></strong></p>

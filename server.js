@@ -3,13 +3,10 @@ var app = express();
 var ig = require('instagram-node').instagram();
 var port = Number(process.env.PORT || 3000);
 var secrets = require('./secrets.json');
-var bodyParser = require('body-parser');
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
 ig.use({
     client_id: secrets.client_id,
